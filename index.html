@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>Bebek</title>
+
+  <style>
+
+nav {
+  background-color: rgba(0, 0, 0, 0.6); /* tamna, prozirna pozadina */
+}
+
+nav a {
+  color: white; /* bijeli tekst u izborniku */
+}
+
+nav a:hover {
+  background-color: white; /* kad miš prijeđe, pozadina postane bijela */
+  color: black;             /* ...a tekst crn da se i dalje vidi */
+}  
+body {
+    background-image: url('pozadina.png');
+    background-size: cover;          /* Slika će prekriti cijelu stranicu */
+    background-repeat: no-repeat;    /* Neće se ponavljati */
+    background-attachment: fixed;    /* Slika ostaje fiksirana prilikom scrollanja */
+    background-position: center;     /* Centriranje slike */
+    color: white;                    /* Bijeli tekst radi kontrasta */
+  }
+.lightbox-img {
+    width: 200px;
+    height: auto;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .lightbox-img:hover {
+    transform: scale(1.05);
+  }
+  #lightbox-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  #lightbox-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+  }
+
+  .program, .narudzba-box {
+    background-color: rgba(0, 0, 0, 0.6); /* Poluprozirna pozadina za čitljivost teksta */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+  }
+
+  img.slika {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+
+  h2, h3 {
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>BEBEK USLUGE</h1>
+  <p>Predani širenju ljepote, kulture, znanja i umjetnosti</p>
+<nav>
+      <div class="dropdown-content">
+      <a href="#izdavastvo">Izdavaštvo</a>
+      <a href="#o-nama">O nama</a>
+     <a href="#novosti">Novosti</a>
+   </div>
+</nav>
+
+<div class="container">
+  <section id="izdavastvo" class="program">
+    <h2>Izdavaštvo: Leon Merula</h2>
+    <img src="Naslovnica.png" alt="Naslovnica" class="lightbox-img" onclick="openLightbox('Naslovnica.png')">
+
+    <div id="lightbox-overlay" onclick="closeLightbox()">
+      <img id="lightbox-full-img" src="" alt="Povećana slika">
+    </div>
+
+    <p>Slobodni smo vam ponuditi da saznate više o skrivenoj povijesti srednjeg vijeka kroz knjigu o životu našeg slavnog putopisca Marka Pola.</p>
+    <p><strong>Autor:</strong> Chi Cha Yua<br>
+       <strong>Naslov:</strong> "Leon Merula"<br>
+       <strong>ISBN:</strong> 978-953-46419-1-0<br>
+       <strong>Izdanje:</strong> Sesvete, 2025</p>
+
+    <p>Knjiga detaljno opisuje porijeklo i život Marka Pola, ljude koje je poznavao, projekte koje je vodio, kao i one na kojima je sudjelovao.</p>
+
+    <div class="dugmad">
+      <button onclick="posaljiUpit()">Narudžba knjige</button>
+      <a href="#" id="toggleLink" class="more-link" onclick="toggleDodatno(); return false;">dodatno o knjizi...</a>
+    </div>
+
+    <div id="dodatno" style="display: white; margin-top: 20px;">
+      <p>Klasična dilema; gdje je rođen Marko Polo, na Korčuli ili u Veneciji.</p>
+      <p>Interesantno pitanje; zašto je Đenova 1298 godine napala Korčulu s više od 100 galija, a da je ne zauzme? Sva raspoloživa flota, vodi je admiral         	 Lamba Dorija? Očito su imali neki cilj. </p>
+      <p>Pitanje je odakle je Venecijanski dominion - Dubrovnik razvio diplomaciju, znanje i kulturu i znanost da dominira sredozemljem stotinama 	  	 godina kasnije.</p>
+      <p> tko je u stvari bio Kublaj Kan, zašto je u ruke golobradog mladića stavio svu moć u vrijeme dok je Marko boravio u Kini. </p>
+      <p> Što je stvarno Marko radio u carstvu Yuan.</p>
+      <p> Tko se s Markom vratio iz Kine, tko je bila princeza Kokočin, postoji li kakva tajna iza tog općepoznatog događaja </p>
+      <p>Knjiga nudi odgovore na sva ova i mnoga druga pitanja, koje s pravom postavljamo i danas.</p> 
+      <p> Knjiga je temeljena na legendi, usmenoj predaji i obiteljskoj povijesti. Produkt je desetljeća istraživanja i proučavanja raspoložive     	dokumentacije. Kako bi po Branka Sovrlic rekla: "..zaklela se zemlja raju da se tajne sve saznaju.." </p>
+    </div>
+  </section>
+
+  <section id="o-nama" class="program">
+    <h2>O nama</h2>
+    <p>Mala smo izdavačka kuća, osnovana kao obrt za promociju djela kulture, snošljivosti i avanture. Naravno da smo na samom početku i želimo ponuditi 	razne druge usluge, o čemu nekom drugom prilikom...</p>
+  </section>
+
+  <section id="novosti" class="program">
+    <h2>Novosti</h2>
+    <p>Aktualno: izdavanje knjige "Leon Merula"!</p>
+  </section>
+
+  <aside class="narudzba-box">
+    <h3>Naruči knjigu</h3>
+    <p>Zainteresirani ste za knjigu <em>Leon Merula</em>? Pošaljite nam upit!</p>
+    <p><strong>Email:</strong><br> obrt.bebek@gmail.com</p>
+    <p><strong>Telefon:</strong><br> +385 91 34 00 718</p>
+  </aside>
+</div>
+
+<footer>
+  <p>&copy; 2025 BEBEK</p>
+</footer>
+
+<script>
+  function posaljiUpit() {
+    const subject = encodeURIComponent("Upit za knjigu Leon Merula");
+    const body = encodeURIComponent("Poštovani,\n\nZanima me više informacija o knjizi 'Leon Merula'.\n\nHvala!");
+    window.location.href = `mailto:obrt.bebek@gmail.com?subject=${subject}&body=${body}`;
+  }
+
+  function toggleDodatno() {
+    const div = document.getElementById("dodatno");
+    const link = document.getElementById("toggleLink");
+    const vidljivo = div.style.display === "block";
+
+    div.style.display = vidljivo ? "none" : "block";
+    link.textContent = vidljivo ? "more..." : "less...";
+  }
+
+  function openLightbox(src) {
+    document.getElementById("lightbox-full-img").src = src;
+    document.getElementById("lightbox-overlay").style.display = "flex";
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox-overlay").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
